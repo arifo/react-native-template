@@ -9,8 +9,44 @@ export class Api {
   constructor() {
     this.axiosInstance = axios.create({
       baseURL: API_URL,
-      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
     });
+
+    // Refresh token logic
+    // this.axiosInstance.interceptors.response.use(
+    //   response => response,
+    //   error => {
+    //     const originalRequest = error.config;
+    //     if (error.response) {
+    //       if (error.response.status === 401 || error.response.status === 403) {
+    //         const { refresh } = getState().auth;
+    //         return axios.post(`${API_URL}token_refresh/`, { refresh }).then(
+    //           res => {
+    //             Api.setAuthToken(res.data.access);
+    //             originalRequest.headers.Authorization = `Token ${res.data.access}`;
+    //             return new Promise((resolve, reject) => {
+    //               axios
+    //                 .request(originalRequest)
+    //                 .then((response: unknown) => {
+    //                   resolve(response);
+    //                 })
+    //                 .catch((error: ResponseErrors) => {
+    //                   reject(error);
+    //                 });
+    //             });
+    //           },
+    //           () => {
+    //             dispatch(resetStore());
+    //           },
+    //         );
+    //       }
+    //     }
+    //     return Promise.reject(error);
+    //   },
+    // );
   }
 
   static getInstance() {

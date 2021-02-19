@@ -10,7 +10,7 @@ import { RootState } from 'types';
 const rootPersistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['common'],
+  // whitelist: ['common'],
 };
 
 const projectReducer = combineReducers({

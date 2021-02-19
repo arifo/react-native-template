@@ -3,8 +3,8 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Text } from 'react-native';
 
-import { AccentButton } from '@components/Buttons';
-import { Container } from '@components/Container';
+import { AccentButton } from 'components/Buttons';
+import { Container } from 'components/Container';
 
 const HomeScreen = () => {
   const navigation = useNavigation();

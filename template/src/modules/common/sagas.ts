@@ -6,7 +6,7 @@ import { getCommonDataAction } from './actions';
 
 function* getCommonDataSaga() {
   try {
-    const { data } = yield CommonApi.getCommonData();
+    const { data } = yield CommonApi.getData();
     yield put(getCommonDataAction.success(data));
   } catch (error) {
     yield put(getCommonDataAction.fail(error));
