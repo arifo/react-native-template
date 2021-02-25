@@ -1,7 +1,7 @@
 {
   "name": "react-native-template",
   "version": "0.0.5",
-  "description": "Appello React Native Template",
+  "description": "React Native Template",
   "repository": "https://github.com/arifo/react-native-template.git",
   "author": "Arifo <arifodev@gmail.com>",
   "license": "MIT"
