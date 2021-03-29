@@ -9,7 +9,30 @@ const guideline = {
   height: 812,
 };
 
-const scaleByWidth = (size: number) => roundPixel((size / guideline.width) * width);
-const scaleByHeight = (size: number) => roundPixel((size / guideline.height) * height);
 
-export { scaleByHeight as sv, scaleByWidth as s };
+function scaleByHeightPercent(size: number): number {
+  // calc percent value from style guide height
+  const sizePercent = (size / guideline.height) * 100;
+  // calc size percent for device screen
+  const sizeForDeviceHeight = (sizePercent * height) / 100;
+
+  return roundPixel(sizeForDeviceHeight);
+}
+function scaleByWidthPercent(size: number): number {
+  // calc percent value from style guide height
+  const sizePercent = (size / guideline.width) * 100;
+  // calc size percent for device screen
+  const sizeForDeviceWidth = (sizePercent * width) / 100;
+
+  return roundPixel(sizeForDeviceWidth);
+}
+
+function responsiveFont(size: number): number {
+  const newSize = size * (width / guideline.width);
+  if (Platform.OS === 'android') {
+    return Math.round(roundPixel(newSize)) - 2;
+  }
+  return Math.round(roundPixel(newSize));
+}
+
+export { scaleByHeightPercent as hp, scaleByWidthPercent as wp, responsiveFont as f };
