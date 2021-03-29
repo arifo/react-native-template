@@ -1,3 +1,5 @@
-export const images = {
-  // appLogo: require(‘./appLogo.png’),
+export type ImageNames = 'logo';
+
+export const images: { [K in ImageNames]: number } = {
+  logo: require('./logo.png'),
 };
