@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['@react-native-community', 'prettier/@typescript-eslint'],
+  extends: ['@react-native-community', 'eslint-config-prettier'],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'import', 'react-hooks'],
   rules: {
@@ -16,10 +16,10 @@ module.exports = {
     ],
     'no-shadow': 'off',
     'no-unused-expressions': ['error', { allowShortCircuit: true }],
-    'no-use-before-define': ['error', { variables: false }],
+    'no-use-before-define': 'off',
     'no-empty': ['error', { allowEmptyCatch: true }],
     'lines-between-class-members': 'off',
-    'arrow-body-style': ["error", "as-needed"],
+    'arrow-body-style': ['error', 'as-needed'],
     // Typescript rules
     '@typescript-eslint/no-explicit-any': 'error',
 
@@ -32,7 +32,7 @@ module.exports = {
 
     // React-Hooks Plugin
     // The following rules are made available via `eslint-plugin-react-hooks`
-    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
     // "react-hooks/exhaustive-deps": "off", // Checks effect dependencies
 
     // React-Native Plugin
@@ -41,24 +41,24 @@ module.exports = {
     // 'react-native/no-raw-text': 'error',
 
     // Import Rules
-    "import/order": [
-      "error",
+    'import/order': [
+      'error',
       {
-        "groups": ["builtin", "external", "internal", ['sibling', 'parent'], "index"],
-        "pathGroups": [
+        groups: ['builtin', 'external', 'internal', ['sibling', 'parent'], 'index'],
+        pathGroups: [
           {
-            "pattern": "react",
-            "group": "external",
-            "position": "before"
-          }
+            pattern: 'react',
+            group: 'external',
+            position: 'before',
+          },
         ],
-        "pathGroupsExcludedImportTypes": ["react"],
-        "newlines-between": "always-and-inside-groups",
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
+        pathGroupsExcludedImportTypes: ['react'],
+        'newlines-between': 'always-and-inside-groups',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
     ],
     'import/first': 'error',
     'import/newline-after-import': 'error',
