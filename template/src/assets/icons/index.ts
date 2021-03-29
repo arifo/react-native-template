@@ -1,3 +1,5 @@
-export const icons = {
-  // close: require(‘./close.png’),
+export type IconNames = 'close';
+
+export const icons: { [K in IconNames]: number } = {
+  close: require('./close.png'),
 };
