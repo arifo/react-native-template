@@ -3,11 +3,21 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "xcode": "open ios/ProjectName.xcworkspace",
+    "android": "react-native run-android",
+    "android:clean": "cd android && ./gradlew clean",
+    "android:apk": "npx jetify && cd android && ./gradlew clean && ./gradlew assembleRelease",
+    "android:bundle": "npx jetify && cd android && ./gradlew clean && ./gradlew bundleRelease",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:write": "eslint --debug src/ --fix",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "test:debug": "jest -o --watch --coverage=false",
+    "test:watch": "jest --watch --coverage=false --changedSince=origin/master",
+    "type-check": "tsc -p tsconfig.json --skipLibCheck",
+    "postinstall": "npx jetify"
   },
   "dependencies": {
     "-": "^0.0.1",
